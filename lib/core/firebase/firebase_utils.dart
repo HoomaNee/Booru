@@ -1,8 +1,8 @@
 // Flutter imports:
-import 'package:flutter/foundation.dart';
+// import 'package:flutter/foundation.dart';
 
 // Package imports:
-import 'package:firebase_core/firebase_core.dart';
+// import 'package:firebase_core/firebase_core.dart';
 
 // Project imports:
 import '../analytics.dart';
@@ -108,13 +108,9 @@ bool isFirebaseEnabled({
     dataCollectingStatus == DataCollectingStatus.allow &&
     (kProfileMode || kReleaseMode);
 
-FirebaseOptions? _tryGetFirebaseOptions(String env, Logger? logger) {
-  try {
-    final options = switch (_kEnv) {
-      'prod' => prod.DefaultFirebaseOptions.currentPlatform,
-      'dev' => dev.DefaultFirebaseOptions.currentPlatform,
-      _ => throw UnsupportedError('Invalid environment: $_kEnv'),
-    };
+FirebaseOptions getFirebaseOptions(String flavor) {
+  throw UnsupportedError('Firebase is disabled temporarily');
+};
 
     return options;
   } catch (e) {
